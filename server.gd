@@ -116,3 +116,7 @@ func _on_sli_speed_value_changed(value):
 	speed = value
 	$main/sliders/speed/txt_speed.set_text(str(speed) + ' cm/s')
 	send_command('speed ' + str(speed))
+
+
+func _on_btn_stop_button_down():
+	send_command('stop')

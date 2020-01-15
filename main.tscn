@@ -108,7 +108,6 @@ text = "Quit"
 icon = ExtResource( 8 )
 
 [node name="auto" type="HBoxContainer" parent="main"]
-editor/display_folded = true
 margin_top = 128.0
 margin_right = 1024.0
 margin_bottom = 168.0
@@ -117,16 +116,23 @@ custom_constants/separation = 16
 alignment = 1
 
 [node name="btn_takeoff" type="Button" parent="main/auto"]
-margin_left = 464.0
-margin_right = 504.0
+margin_left = 429.0
+margin_right = 469.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 disabled = true
 icon = ExtResource( 9 )
 
+[node name="btn_stop" type="Button" parent="main/auto"]
+margin_left = 485.0
+margin_right = 539.0
+margin_bottom = 40.0
+disabled = true
+text = "STOP"
+
 [node name="btn_land" type="Button" parent="main/auto"]
-margin_left = 520.0
-margin_right = 560.0
+margin_left = 555.0
+margin_right = 595.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 disabled = true
@@ -383,6 +389,7 @@ icon = ExtResource( 20 )
 [connection signal="button_down" from="main/system/btn_show stream" to="." method="_on_btn_show_stream_button_down"]
 [connection signal="button_down" from="main/system/btn_quit" to="." method="_on_btn_quit_button_down"]
 [connection signal="button_down" from="main/auto/btn_takeoff" to="." method="_on_btn_takeoff_button_down"]
+[connection signal="button_down" from="main/auto/btn_stop" to="." method="_on_btn_stop_button_down"]
 [connection signal="button_down" from="main/auto/btn_land" to="." method="_on_btn_land_button_down"]
 [connection signal="button_down" from="main/controlls/nav_left/right_stick/center/btn_up" to="." method="_on_btn_up_button_down"]
 [connection signal="button_down" from="main/controlls/nav_left/right_stick/vertical/btn_ccw" to="." method="_on_btn_ccw_button_down"]
