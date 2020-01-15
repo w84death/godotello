@@ -1,0 +1,218 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://server.gd" type="Script" id=2]
+[ext_resource path="res://gui/Endamage.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[node name="Dashboard" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="main" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 16
+
+[node name="txt_title" type="Label" parent="main"]
+margin_right = 1024.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+custom_fonts/font = SubResource( 1 )
+text = "GODOTELLO
+by P1X"
+align = 1
+valign = 1
+
+[node name="system" type="HBoxContainer" parent="main"]
+margin_top = 80.0
+margin_right = 1024.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 0, 32 )
+custom_constants/separation = 32
+alignment = 1
+
+[node name="btn_connect" type="Button" parent="main/system"]
+margin_left = 251.0
+margin_right = 398.0
+margin_bottom = 32.0
+text = "Connect to Tello"
+
+[node name="btn_command" type="Button" parent="main/system"]
+margin_left = 430.0
+margin_right = 509.0
+margin_bottom = 32.0
+disabled = true
+text = "Command"
+
+[node name="btn_streamon" type="Button" parent="main/system"]
+margin_left = 541.0
+margin_right = 632.0
+margin_bottom = 32.0
+disabled = true
+text = "Stream ON"
+
+[node name="btn_show stream" type="Button" parent="main/system"]
+margin_left = 664.0
+margin_right = 773.0
+margin_bottom = 32.0
+disabled = true
+text = "Show Stream"
+
+[node name="auto" type="HBoxContainer" parent="main"]
+margin_top = 128.0
+margin_right = 1024.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 0, 32 )
+custom_constants/separation = 16
+alignment = 1
+
+[node name="btn_takeoff" type="Button" parent="main/auto"]
+margin_left = 437.0
+margin_right = 519.0
+margin_bottom = 32.0
+disabled = true
+text = "Take Off"
+
+[node name="btn_land" type="Button" parent="main/auto"]
+margin_left = 535.0
+margin_right = 587.0
+margin_bottom = 32.0
+disabled = true
+text = "Land"
+
+[node name="controlls" type="HBoxContainer" parent="main"]
+margin_top = 176.0
+margin_right = 1024.0
+margin_bottom = 576.0
+rect_min_size = Vector2( 0, 400 )
+custom_constants/separation = 16
+alignment = 1
+
+[node name="nav_left" type="VBoxContainer" parent="main/controlls"]
+margin_left = 36.0
+margin_right = 176.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 140, 0 )
+custom_constants/separation = 32
+alignment = 1
+
+[node name="right_stick" type="VBoxContainer" parent="main/controlls/nav_left"]
+margin_top = 113.0
+margin_right = 140.0
+margin_bottom = 287.0
+custom_constants/separation = 15
+
+[node name="btn_up" type="Button" parent="main/controlls/nav_left/right_stick"]
+margin_right = 140.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 48 )
+text = "Up"
+
+[node name="vertical2" type="HBoxContainer" parent="main/controlls/nav_left/right_stick"]
+margin_top = 63.0
+margin_right = 140.0
+margin_bottom = 111.0
+rect_min_size = Vector2( 0, 48 )
+custom_constants/separation = 10
+alignment = 1
+
+[node name="btn_ccw" type="Button" parent="main/controlls/nav_left/right_stick/vertical2"]
+margin_left = 1.0
+margin_right = 65.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 64, 0 )
+text = "Rot L"
+
+[node name="btn_cw" type="Button" parent="main/controlls/nav_left/right_stick/vertical2"]
+margin_left = 75.0
+margin_right = 138.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 63, 0 )
+text = "Rot R"
+
+[node name="btn_down" type="Button" parent="main/controlls/nav_left/right_stick"]
+margin_top = 126.0
+margin_right = 140.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 0, 48 )
+text = "Down"
+
+[node name="log" type="Control" parent="main/controlls"]
+margin_left = 192.0
+margin_right = 832.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 640, 0 )
+
+[node name="txt_log" type="RichTextLabel" parent="main/controlls/log"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "LOG:
+"
+
+[node name="nav_right" type="VBoxContainer" parent="main/controlls"]
+margin_left = 848.0
+margin_right = 988.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 140, 0 )
+custom_constants/separation = 32
+alignment = 1
+
+[node name="right_stick" type="VBoxContainer" parent="main/controlls/nav_right"]
+margin_top = 113.0
+margin_right = 140.0
+margin_bottom = 287.0
+custom_constants/separation = 15
+
+[node name="btn_forward" type="Button" parent="main/controlls/nav_right/right_stick"]
+margin_right = 140.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 0, 48 )
+text = "Forward"
+
+[node name="vertical" type="HBoxContainer" parent="main/controlls/nav_right/right_stick"]
+margin_top = 63.0
+margin_right = 140.0
+margin_bottom = 111.0
+rect_min_size = Vector2( 0, 48 )
+custom_constants/separation = 10
+alignment = 1
+
+[node name="btn_left" type="Button" parent="main/controlls/nav_right/right_stick/vertical"]
+margin_left = 1.0
+margin_right = 65.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 64, 48 )
+text = "Left"
+
+[node name="btn_right" type="Button" parent="main/controlls/nav_right/right_stick/vertical"]
+margin_left = 75.0
+margin_right = 139.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 64, 48 )
+text = "Right"
+
+[node name="btn_back" type="Button" parent="main/controlls/nav_right/right_stick"]
+margin_top = 126.0
+margin_right = 140.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 0, 48 )
+text = "Back"
+[connection signal="button_down" from="main/system/btn_connect" to="." method="_on_btn_connect_button_down"]
+[connection signal="button_down" from="main/system/btn_command" to="." method="_on_btn_command_button_down"]
+[connection signal="button_down" from="main/system/btn_streamon" to="." method="_on_btn_streamon_button_down"]
+[connection signal="button_down" from="main/system/btn_show stream" to="." method="_on_btn_show_stream_button_down"]
+[connection signal="button_down" from="main/auto/btn_takeoff" to="." method="_on_btn_takeoff_button_down"]
+[connection signal="button_down" from="main/auto/btn_land" to="." method="_on_btn_land_button_down"]
+[connection signal="button_down" from="main/controlls/nav_left/right_stick/btn_up" to="." method="_on_btn_up_button_down"]
+[connection signal="button_down" from="main/controlls/nav_left/right_stick/vertical2/btn_ccw" to="." method="_on_btn_ccw_button_down"]
+[connection signal="button_down" from="main/controlls/nav_left/right_stick/vertical2/btn_cw" to="." method="_on_btn_cw_button_down"]
+[connection signal="button_down" from="main/controlls/nav_left/right_stick/btn_down" to="." method="_on_btn_down_button_down"]
+[connection signal="button_down" from="main/controlls/nav_right/right_stick/btn_forward" to="." method="_on_btn_forward_button_down"]
+[connection signal="button_down" from="main/controlls/nav_right/right_stick/vertical/btn_left" to="." method="_on_btn_left_button_down"]
+[connection signal="button_down" from="main/controlls/nav_right/right_stick/vertical/btn_right" to="." method="_on_btn_right_button_down"]
+[connection signal="button_down" from="main/controlls/nav_right/right_stick/btn_back" to="." method="_on_btn_back_button_down"]
