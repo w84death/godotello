@@ -1,8 +1,22 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://gui/theme.tres" type="Theme" id=1]
 [ext_resource path="res://server.gd" type="Script" id=2]
 [ext_resource path="res://gui/Inter-Black.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://gui/server-line.png" type="Texture" id=4]
+[ext_resource path="res://gui/command-line.png" type="Texture" id=5]
+[ext_resource path="res://gui/movie-2-line.png" type="Texture" id=6]
+[ext_resource path="res://gui/live-line.png" type="Texture" id=7]
+[ext_resource path="res://gui/flight-takeoff-line.png" type="Texture" id=8]
+[ext_resource path="res://gui/flight-land-line.png" type="Texture" id=9]
+[ext_resource path="res://gui/arrow-up-circle-fill.png" type="Texture" id=10]
+[ext_resource path="res://gui/arrow-go-back-line.png" type="Texture" id=11]
+[ext_resource path="res://gui/arrow-go-forward-line.png" type="Texture" id=12]
+[ext_resource path="res://gui/arrow-down-circle-fill.png" type="Texture" id=13]
+[ext_resource path="res://gui/arrow-up-line.png" type="Texture" id=14]
+[ext_resource path="res://gui/arrow-left-line.png" type="Texture" id=15]
+[ext_resource path="res://gui/arrow-right-line.png" type="Texture" id=16]
+[ext_resource path="res://gui/arrow-down-line.png" type="Texture" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -49,110 +63,125 @@ custom_constants/separation = 32
 alignment = 1
 
 [node name="btn_start_server" type="Button" parent="main/system"]
-margin_left = 285.0
-margin_right = 391.0
+margin_left = 207.0
+margin_right = 339.0
 margin_bottom = 32.0
 text = "Start Server"
+icon = ExtResource( 4 )
 
 [node name="btn_command" type="Button" parent="main/system"]
-margin_left = 423.0
-margin_right = 500.0
+margin_left = 371.0
+margin_right = 487.0
 margin_bottom = 32.0
 disabled = true
 text = "Command"
+icon = ExtResource( 5 )
 
 [node name="btn_streamon" type="Button" parent="main/system"]
-margin_left = 532.0
-margin_right = 612.0
+margin_left = 519.0
+margin_right = 643.0
 margin_bottom = 32.0
 disabled = true
 text = "Stream ON"
+icon = ExtResource( 6 )
 
 [node name="btn_show stream" type="Button" parent="main/system"]
-margin_left = 644.0
-margin_right = 738.0
+margin_left = 675.0
+margin_right = 817.0
 margin_bottom = 32.0
 disabled = true
 text = "Show Stream"
+icon = ExtResource( 7 )
 
 [node name="auto" type="HBoxContainer" parent="main"]
 margin_top = 128.0
 margin_right = 1024.0
-margin_bottom = 160.0
+margin_bottom = 168.0
 rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 16
 alignment = 1
 
 [node name="btn_takeoff" type="Button" parent="main/auto"]
-margin_left = 449.0
-margin_right = 514.0
-margin_bottom = 32.0
+margin_left = 464.0
+margin_right = 504.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
 disabled = true
-text = "Take Off"
+icon = ExtResource( 8 )
 
 [node name="btn_land" type="Button" parent="main/auto"]
-margin_left = 530.0
-margin_right = 575.0
-margin_bottom = 32.0
+margin_left = 520.0
+margin_right = 560.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
 disabled = true
-text = "Land"
+icon = ExtResource( 9 )
 
 [node name="controlls" type="HBoxContainer" parent="main"]
-margin_top = 176.0
+margin_top = 184.0
 margin_right = 1024.0
-margin_bottom = 576.0
+margin_bottom = 584.0
 rect_min_size = Vector2( 0, 400 )
 custom_constants/separation = 16
 alignment = 1
 
 [node name="nav_left" type="VBoxContainer" parent="main/controlls"]
-margin_left = 36.0
+margin_left = 86.0
 margin_right = 176.0
 margin_bottom = 400.0
-rect_min_size = Vector2( 140, 0 )
+rect_min_size = Vector2( 0, 400 )
 custom_constants/separation = 32
 alignment = 1
 
 [node name="right_stick" type="VBoxContainer" parent="main/controlls/nav_left"]
-margin_top = 113.0
-margin_right = 140.0
-margin_bottom = 287.0
-custom_constants/separation = 15
+margin_top = 124.0
+margin_right = 90.0
+margin_bottom = 276.0
+custom_constants/separation = 16
 
-[node name="btn_up" type="Button" parent="main/controlls/nav_left/right_stick"]
-margin_right = 140.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 0, 48 )
-text = "Up"
+[node name="center" type="CenterContainer" parent="main/controlls/nav_left/right_stick"]
+margin_right = 90.0
+margin_bottom = 40.0
 
-[node name="vertical2" type="HBoxContainer" parent="main/controlls/nav_left/right_stick"]
-margin_top = 63.0
-margin_right = 140.0
-margin_bottom = 111.0
-rect_min_size = Vector2( 0, 48 )
+[node name="btn_up" type="Button" parent="main/controlls/nav_left/right_stick/center"]
+margin_left = 25.0
+margin_right = 65.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+icon = ExtResource( 10 )
+
+[node name="vertical" type="HBoxContainer" parent="main/controlls/nav_left/right_stick"]
+margin_top = 56.0
+margin_right = 90.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 40 )
 custom_constants/separation = 10
 alignment = 1
 
-[node name="btn_ccw" type="Button" parent="main/controlls/nav_left/right_stick/vertical2"]
-margin_left = 1.0
+[node name="btn_ccw" type="Button" parent="main/controlls/nav_left/right_stick/vertical"]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+icon = ExtResource( 11 )
+
+[node name="btn_cw" type="Button" parent="main/controlls/nav_left/right_stick/vertical"]
+margin_left = 50.0
+margin_right = 90.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+icon = ExtResource( 12 )
+
+[node name="center2" type="CenterContainer" parent="main/controlls/nav_left/right_stick"]
+margin_top = 112.0
+margin_right = 90.0
+margin_bottom = 152.0
+
+[node name="btn_down" type="Button" parent="main/controlls/nav_left/right_stick/center2"]
+margin_left = 25.0
 margin_right = 65.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 64, 0 )
-text = "Rot L"
-
-[node name="btn_cw" type="Button" parent="main/controlls/nav_left/right_stick/vertical2"]
-margin_left = 75.0
-margin_right = 138.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 63, 0 )
-text = "Rot R"
-
-[node name="btn_down" type="Button" parent="main/controlls/nav_left/right_stick"]
-margin_top = 126.0
-margin_right = 140.0
-margin_bottom = 174.0
-rect_min_size = Vector2( 0, 48 )
-text = "Down"
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+icon = ExtResource( 13 )
 
 [node name="log" type="Control" parent="main/controlls"]
 margin_left = 192.0
@@ -168,63 +197,72 @@ text = "LOG:
 
 [node name="nav_right" type="VBoxContainer" parent="main/controlls"]
 margin_left = 848.0
-margin_right = 988.0
+margin_right = 938.0
 margin_bottom = 400.0
-rect_min_size = Vector2( 140, 0 )
+rect_min_size = Vector2( 0, 400 )
 custom_constants/separation = 32
 alignment = 1
 
 [node name="right_stick" type="VBoxContainer" parent="main/controlls/nav_right"]
-margin_top = 113.0
-margin_right = 140.0
-margin_bottom = 287.0
-custom_constants/separation = 15
+margin_top = 124.0
+margin_right = 90.0
+margin_bottom = 276.0
+custom_constants/separation = 16
 
-[node name="btn_forward" type="Button" parent="main/controlls/nav_right/right_stick"]
-margin_right = 140.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 0, 48 )
-text = "Forward"
+[node name="center" type="CenterContainer" parent="main/controlls/nav_right/right_stick"]
+margin_right = 90.0
+margin_bottom = 40.0
+
+[node name="btn_forward" type="Button" parent="main/controlls/nav_right/right_stick/center"]
+margin_left = 25.0
+margin_right = 65.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+icon = ExtResource( 14 )
 
 [node name="vertical" type="HBoxContainer" parent="main/controlls/nav_right/right_stick"]
-margin_top = 63.0
-margin_right = 140.0
-margin_bottom = 111.0
-rect_min_size = Vector2( 0, 48 )
+margin_top = 56.0
+margin_right = 90.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 40 )
 custom_constants/separation = 10
 alignment = 1
 
 [node name="btn_left" type="Button" parent="main/controlls/nav_right/right_stick/vertical"]
-margin_left = 1.0
-margin_right = 65.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 64, 48 )
-text = "Left"
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+icon = ExtResource( 15 )
 
 [node name="btn_right" type="Button" parent="main/controlls/nav_right/right_stick/vertical"]
-margin_left = 75.0
-margin_right = 139.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 64, 48 )
-text = "Right"
+margin_left = 50.0
+margin_right = 90.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+icon = ExtResource( 16 )
 
-[node name="btn_back" type="Button" parent="main/controlls/nav_right/right_stick"]
-margin_top = 126.0
-margin_right = 140.0
-margin_bottom = 174.0
-rect_min_size = Vector2( 0, 48 )
-text = "Back"
+[node name="center2" type="CenterContainer" parent="main/controlls/nav_right/right_stick"]
+margin_top = 112.0
+margin_right = 90.0
+margin_bottom = 152.0
+
+[node name="btn_back" type="Button" parent="main/controlls/nav_right/right_stick/center2"]
+margin_left = 25.0
+margin_right = 65.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+icon = ExtResource( 17 )
 [connection signal="button_down" from="main/system/btn_start_server" to="." method="_on_btn_start_server_button_down"]
 [connection signal="button_down" from="main/system/btn_command" to="." method="_on_btn_command_button_down"]
 [connection signal="button_down" from="main/system/btn_streamon" to="." method="_on_btn_streamon_button_down"]
 [connection signal="button_down" from="main/system/btn_show stream" to="." method="_on_btn_show_stream_button_down"]
 [connection signal="button_down" from="main/auto/btn_takeoff" to="." method="_on_btn_takeoff_button_down"]
 [connection signal="button_down" from="main/auto/btn_land" to="." method="_on_btn_land_button_down"]
-[connection signal="button_down" from="main/controlls/nav_left/right_stick/btn_up" to="." method="_on_btn_up_button_down"]
-[connection signal="button_down" from="main/controlls/nav_left/right_stick/vertical2/btn_ccw" to="." method="_on_btn_ccw_button_down"]
-[connection signal="button_down" from="main/controlls/nav_left/right_stick/vertical2/btn_cw" to="." method="_on_btn_cw_button_down"]
-[connection signal="button_down" from="main/controlls/nav_left/right_stick/btn_down" to="." method="_on_btn_down_button_down"]
-[connection signal="button_down" from="main/controlls/nav_right/right_stick/btn_forward" to="." method="_on_btn_forward_button_down"]
+[connection signal="button_down" from="main/controlls/nav_left/right_stick/center/btn_up" to="." method="_on_btn_up_button_down"]
+[connection signal="button_down" from="main/controlls/nav_left/right_stick/vertical/btn_ccw" to="." method="_on_btn_ccw_button_down"]
+[connection signal="button_down" from="main/controlls/nav_left/right_stick/vertical/btn_cw" to="." method="_on_btn_cw_button_down"]
+[connection signal="button_down" from="main/controlls/nav_left/right_stick/center2/btn_down" to="." method="_on_btn_down_button_down"]
+[connection signal="button_down" from="main/controlls/nav_right/right_stick/center/btn_forward" to="." method="_on_btn_forward_button_down"]
 [connection signal="button_down" from="main/controlls/nav_right/right_stick/vertical/btn_left" to="." method="_on_btn_left_button_down"]
 [connection signal="button_down" from="main/controlls/nav_right/right_stick/vertical/btn_right" to="." method="_on_btn_right_button_down"]
-[connection signal="button_down" from="main/controlls/nav_right/right_stick/btn_back" to="." method="_on_btn_back_button_down"]
+[connection signal="button_down" from="main/controlls/nav_right/right_stick/center2/btn_back" to="." method="_on_btn_back_button_down"]
