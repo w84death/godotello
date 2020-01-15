@@ -120,9 +120,10 @@ align = 1
 valign = 1
 
 [node name="txt_subtitle" type="Label" parent="main/txt_title"]
-margin_top = 43.0
-margin_right = 1024.0
-margin_bottom = 63.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -18.0
 text = "by P1X"
 align = 1
 valign = 1
