@@ -39,6 +39,9 @@ script = ExtResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/separation = 16
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="txt_title" type="Label" parent="main"]
 margin_right = 1024.0
@@ -58,6 +61,7 @@ align = 1
 valign = 1
 
 [node name="system" type="HBoxContainer" parent="main"]
+editor/display_folded = true
 margin_top = 80.0
 margin_right = 1024.0
 margin_bottom = 112.0
@@ -100,11 +104,11 @@ icon = ExtResource( 7 )
 margin_left = 816.0
 margin_right = 885.0
 margin_bottom = 32.0
-disabled = true
 text = "Quit"
 icon = ExtResource( 8 )
 
 [node name="auto" type="HBoxContainer" parent="main"]
+editor/display_folded = true
 margin_top = 128.0
 margin_right = 1024.0
 margin_bottom = 168.0
@@ -131,23 +135,23 @@ icon = ExtResource( 10 )
 [node name="controlls" type="HBoxContainer" parent="main"]
 margin_top = 184.0
 margin_right = 1024.0
-margin_bottom = 584.0
-rect_min_size = Vector2( 0, 400 )
+margin_bottom = 440.0
 custom_constants/separation = 16
 alignment = 1
 
 [node name="nav_left" type="VBoxContainer" parent="main/controlls"]
+editor/display_folded = true
 margin_left = 86.0
 margin_right = 176.0
-margin_bottom = 400.0
-rect_min_size = Vector2( 0, 400 )
+margin_bottom = 256.0
+rect_min_size = Vector2( 0, 256 )
 custom_constants/separation = 32
 alignment = 1
 
 [node name="right_stick" type="VBoxContainer" parent="main/controlls/nav_left"]
-margin_top = 124.0
+margin_top = 52.0
 margin_right = 90.0
-margin_bottom = 276.0
+margin_bottom = 204.0
 custom_constants/separation = 16
 
 [node name="center" type="CenterContainer" parent="main/controlls/nav_left/right_stick"]
@@ -197,27 +201,29 @@ icon = ExtResource( 14 )
 [node name="log" type="Control" parent="main/controlls"]
 margin_left = 192.0
 margin_right = 832.0
-margin_bottom = 400.0
+margin_bottom = 256.0
 rect_min_size = Vector2( 640, 0 )
 
 [node name="txt_log" type="RichTextLabel" parent="main/controlls/log"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-text = "LOG:
-"
+text = "FLIGHT LOG:"
+scroll_active = false
+scroll_following = true
 
 [node name="nav_right" type="VBoxContainer" parent="main/controlls"]
+editor/display_folded = true
 margin_left = 848.0
 margin_right = 938.0
-margin_bottom = 400.0
-rect_min_size = Vector2( 0, 400 )
+margin_bottom = 256.0
+rect_min_size = Vector2( 0, 256 )
 custom_constants/separation = 32
 alignment = 1
 
 [node name="right_stick" type="VBoxContainer" parent="main/controlls/nav_right"]
-margin_top = 124.0
+margin_top = 52.0
 margin_right = 90.0
-margin_bottom = 276.0
+margin_bottom = 204.0
 custom_constants/separation = 16
 
 [node name="center" type="CenterContainer" parent="main/controlls/nav_right/right_stick"]
@@ -264,6 +270,96 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 icon = ExtResource( 18 )
 
+[node name="sliders" type="HBoxContainer" parent="main"]
+margin_top = 456.0
+margin_right = 1024.0
+margin_bottom = 520.0
+rect_min_size = Vector2( 0, 64 )
+custom_constants/separation = 64
+alignment = 1
+
+[node name="distance_deg" type="HBoxContainer" parent="main/sliders"]
+editor/display_folded = true
+margin_left = 113.0
+margin_right = 366.0
+margin_bottom = 64.0
+
+[node name="txt_distance_deg2" type="Label" parent="main/sliders/distance_deg"]
+margin_top = 23.0
+margin_right = 74.0
+margin_bottom = 41.0
+text = "ROTATION:"
+
+[node name="sli_distance_deg" type="HSlider" parent="main/sliders/distance_deg"]
+margin_left = 78.0
+margin_right = 174.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 96, 64 )
+max_value = 360.0
+value = 45.0
+
+[node name="txt_distance_deg" type="Label" parent="main/sliders/distance_deg"]
+margin_left = 178.0
+margin_top = 23.0
+margin_right = 253.0
+margin_bottom = 41.0
+text = "45 degress"
+
+[node name="speed" type="HBoxContainer" parent="main/sliders"]
+editor/display_folded = true
+margin_left = 430.0
+margin_right = 631.0
+margin_bottom = 64.0
+
+[node name="txt_speed2" type="Label" parent="main/sliders/speed"]
+margin_top = 23.0
+margin_right = 47.0
+margin_bottom = 41.0
+text = "SPEED:"
+
+[node name="sli_speed" type="HSlider" parent="main/sliders/speed"]
+margin_left = 51.0
+margin_right = 147.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 96, 64 )
+min_value = 10.0
+value = 10.0
+
+[node name="txt_speed" type="Label" parent="main/sliders/speed"]
+margin_left = 151.0
+margin_top = 23.0
+margin_right = 201.0
+margin_bottom = 41.0
+text = "10 cm/s"
+
+[node name="distance" type="HBoxContainer" parent="main/sliders"]
+editor/display_folded = true
+margin_left = 695.0
+margin_right = 910.0
+margin_bottom = 64.0
+
+[node name="txt_distance2" type="Label" parent="main/sliders/distance"]
+margin_top = 23.0
+margin_right = 71.0
+margin_bottom = 41.0
+text = "DISTANCE:"
+
+[node name="sli_distance" type="HSlider" parent="main/sliders/distance"]
+margin_left = 75.0
+margin_right = 171.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 96, 64 )
+min_value = 20.0
+max_value = 500.0
+value = 20.0
+
+[node name="txt_distance" type="Label" parent="main/sliders/distance"]
+margin_left = 175.0
+margin_top = 23.0
+margin_right = 215.0
+margin_bottom = 41.0
+text = "20 cm"
+
 [node name="battery" type="Button" parent="."]
 margin_left = 10.0
 margin_top = 10.0
@@ -285,7 +381,7 @@ icon = ExtResource( 20 )
 [connection signal="button_down" from="main/system/btn_command" to="." method="_on_btn_command_button_down"]
 [connection signal="button_down" from="main/system/btn_streamon" to="." method="_on_btn_streamon_button_down"]
 [connection signal="button_down" from="main/system/btn_show stream" to="." method="_on_btn_show_stream_button_down"]
-[connection signal="button_down" from="main/system/btn_quit" to="." method="_on_btn_show_stream_button_down"]
+[connection signal="button_down" from="main/system/btn_quit" to="." method="_on_btn_quit_button_down"]
 [connection signal="button_down" from="main/auto/btn_takeoff" to="." method="_on_btn_takeoff_button_down"]
 [connection signal="button_down" from="main/auto/btn_land" to="." method="_on_btn_land_button_down"]
 [connection signal="button_down" from="main/controlls/nav_left/right_stick/center/btn_up" to="." method="_on_btn_up_button_down"]
@@ -293,6 +389,10 @@ icon = ExtResource( 20 )
 [connection signal="button_down" from="main/controlls/nav_left/right_stick/vertical/btn_cw" to="." method="_on_btn_cw_button_down"]
 [connection signal="button_down" from="main/controlls/nav_left/right_stick/center2/btn_down" to="." method="_on_btn_down_button_down"]
 [connection signal="button_down" from="main/controlls/nav_right/right_stick/center/btn_forward" to="." method="_on_btn_forward_button_down"]
+[connection signal="pressed" from="main/controlls/nav_right/right_stick/center/btn_forward" to="." method="_on_btn_forward_pressed"]
 [connection signal="button_down" from="main/controlls/nav_right/right_stick/vertical/btn_left" to="." method="_on_btn_left_button_down"]
 [connection signal="button_down" from="main/controlls/nav_right/right_stick/vertical/btn_right" to="." method="_on_btn_right_button_down"]
 [connection signal="button_down" from="main/controlls/nav_right/right_stick/center2/btn_back" to="." method="_on_btn_back_button_down"]
+[connection signal="value_changed" from="main/sliders/distance_deg/sli_distance_deg" to="." method="_on_sli_distance_deg_value_changed"]
+[connection signal="value_changed" from="main/sliders/speed/sli_speed" to="." method="_on_sli_speed_value_changed"]
+[connection signal="value_changed" from="main/sliders/distance/sli_distance" to="." method="_on_sli_distance_value_changed"]
