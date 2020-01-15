@@ -1,25 +1,27 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://gui/theme.tres" type="Theme" id=1]
 [ext_resource path="res://server.gd" type="Script" id=2]
-[ext_resource path="res://gui/Inter-Black.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://gui/server-line.png" type="Texture" id=4]
-[ext_resource path="res://gui/command-line.png" type="Texture" id=5]
-[ext_resource path="res://gui/movie-2-line.png" type="Texture" id=6]
-[ext_resource path="res://gui/picture-in-picture-exit-line.png" type="Texture" id=7]
-[ext_resource path="res://gui/close-circle-line.png" type="Texture" id=8]
-[ext_resource path="res://gui/flight-takeoff-line.png" type="Texture" id=9]
-[ext_resource path="res://gui/flight-land-line.png" type="Texture" id=10]
-[ext_resource path="res://gui/arrow-up-circle-fill.png" type="Texture" id=11]
-[ext_resource path="res://gui/arrow-go-back-line.png" type="Texture" id=12]
-[ext_resource path="res://gui/arrow-go-forward-line.png" type="Texture" id=13]
-[ext_resource path="res://gui/arrow-down-circle-fill.png" type="Texture" id=14]
-[ext_resource path="res://gui/arrow-up-line.png" type="Texture" id=15]
-[ext_resource path="res://gui/arrow-left-line.png" type="Texture" id=16]
-[ext_resource path="res://gui/arrow-right-line.png" type="Texture" id=17]
-[ext_resource path="res://gui/arrow-down-line.png" type="Texture" id=18]
-[ext_resource path="res://gui/battery-line.png" type="Texture" id=19]
-[ext_resource path="res://gui/base-station-line.png" type="Texture" id=20]
+[ext_resource path="res://gui/base-station-line.png" type="Texture" id=3]
+[ext_resource path="res://gui/battery-line.png" type="Texture" id=4]
+[ext_resource path="res://gui/speed-fill.png" type="Texture" id=5]
+[ext_resource path="res://gui/Inter-Black.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://gui/server-line.png" type="Texture" id=7]
+[ext_resource path="res://gui/command-line.png" type="Texture" id=8]
+[ext_resource path="res://gui/movie-2-line.png" type="Texture" id=9]
+[ext_resource path="res://gui/picture-in-picture-exit-line.png" type="Texture" id=10]
+[ext_resource path="res://gui/close-circle-line.png" type="Texture" id=11]
+[ext_resource path="res://gui/flight-takeoff-line.png" type="Texture" id=12]
+[ext_resource path="res://gui/stop-circle-line.png" type="Texture" id=13]
+[ext_resource path="res://gui/flight-land-line.png" type="Texture" id=14]
+[ext_resource path="res://gui/arrow-up-circle-fill.png" type="Texture" id=15]
+[ext_resource path="res://gui/arrow-go-back-line.png" type="Texture" id=16]
+[ext_resource path="res://gui/arrow-go-forward-line.png" type="Texture" id=17]
+[ext_resource path="res://gui/arrow-down-circle-fill.png" type="Texture" id=18]
+[ext_resource path="res://gui/arrow-up-line.png" type="Texture" id=19]
+[ext_resource path="res://gui/arrow-left-line.png" type="Texture" id=20]
+[ext_resource path="res://gui/arrow-right-line.png" type="Texture" id=21]
+[ext_resource path="res://gui/arrow-down-line.png" type="Texture" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -27,7 +29,7 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = -6
 extra_spacing_bottom = -6
-font_data = ExtResource( 3 )
+font_data = ExtResource( 6 )
 
 [node name="Dashboard" type="Control"]
 anchor_right = 1.0
@@ -35,9 +37,74 @@ anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
+[node name="info" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="link" type="Control" parent="info"]
+editor/display_folded = true
+margin_right = 128.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 128, 32 )
+
+[node name="link_strength" type="Label" parent="info/link"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 32 )
+text = "0 SNR"
+align = 1
+valign = 1
+
+[node name="base-station-line" type="Sprite" parent="info/link"]
+position = Vector2( 23.8921, 23.1264 )
+scale = Vector2( 1, 1.22673 )
+texture = ExtResource( 3 )
+
+[node name="batt" type="Control" parent="info"]
+editor/display_folded = true
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -128.0
+margin_bottom = 43.0
+rect_min_size = Vector2( 128, 32 )
+
+[node name="battery" type="Label" parent="info/batt"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "0%"
+align = 1
+valign = 1
+
+[node name="battery-line" type="Sprite" parent="info/batt"]
+position = Vector2( 28.3502, 21.2796 )
+texture = ExtResource( 4 )
+
+[node name="speed" type="Control" parent="info"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -64.0
+margin_top = -93.0
+margin_right = 64.0
+margin_bottom = -50.0
+rect_min_size = Vector2( 128, 32 )
+
+[node name="speed-fill" type="Sprite" parent="info/speed"]
+position = Vector2( 13.55, 20.2925 )
+texture = ExtResource( 5 )
+
+[node name="speed" type="Label" parent="info/speed"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "10 cm/s"
+align = 1
+valign = 1
+
 [node name="main" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -80.0
 custom_constants/separation = 16
 __meta__ = {
 "_edit_lock_": true
@@ -52,7 +119,7 @@ text = "Godotello"
 align = 1
 valign = 1
 
-[node name="txt_title2" type="Label" parent="main/txt_title"]
+[node name="txt_subtitle" type="Label" parent="main/txt_title"]
 margin_top = 43.0
 margin_right = 1024.0
 margin_bottom = 63.0
@@ -70,42 +137,42 @@ custom_constants/separation = 32
 alignment = 1
 
 [node name="btn_start_server" type="Button" parent="main/system"]
-margin_left = 139.0
-margin_right = 271.0
+margin_left = 152.0
+margin_right = 275.0
 margin_bottom = 32.0
 text = "Start Server"
-icon = ExtResource( 4 )
+icon = ExtResource( 7 )
 
 [node name="btn_command" type="Button" parent="main/system"]
-margin_left = 303.0
-margin_right = 419.0
+margin_left = 307.0
+margin_right = 415.0
 margin_bottom = 32.0
 disabled = true
 text = "Command"
-icon = ExtResource( 5 )
+icon = ExtResource( 8 )
 
 [node name="btn_streamon" type="Button" parent="main/system"]
-margin_left = 451.0
-margin_right = 575.0
+margin_left = 447.0
+margin_right = 561.0
 margin_bottom = 32.0
 disabled = true
 text = "Stream ON"
-icon = ExtResource( 6 )
+icon = ExtResource( 9 )
 
 [node name="btn_show stream" type="Button" parent="main/system"]
-margin_left = 607.0
-margin_right = 784.0
+margin_left = 593.0
+margin_right = 770.0
 margin_bottom = 32.0
 disabled = true
 text = "Pop Stream Window"
-icon = ExtResource( 7 )
+icon = ExtResource( 10 )
 
 [node name="btn_quit" type="Button" parent="main/system"]
-margin_left = 816.0
-margin_right = 885.0
+margin_left = 802.0
+margin_right = 871.0
 margin_bottom = 32.0
 text = "Quit"
-icon = ExtResource( 8 )
+icon = ExtResource( 11 )
 
 [node name="auto" type="HBoxContainer" parent="main"]
 margin_top = 128.0
@@ -116,27 +183,30 @@ custom_constants/separation = 16
 alignment = 1
 
 [node name="btn_takeoff" type="Button" parent="main/auto"]
-margin_left = 429.0
-margin_right = 469.0
+margin_left = 334.0
+margin_right = 432.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 disabled = true
-icon = ExtResource( 9 )
+text = "Take off"
+icon = ExtResource( 12 )
 
 [node name="btn_stop" type="Button" parent="main/auto"]
-margin_left = 485.0
-margin_right = 539.0
+margin_left = 448.0
+margin_right = 599.0
 margin_bottom = 40.0
 disabled = true
-text = "STOP"
+text = "STOP / HOOVER"
+icon = ExtResource( 13 )
 
 [node name="btn_land" type="Button" parent="main/auto"]
-margin_left = 555.0
-margin_right = 595.0
+margin_left = 615.0
+margin_right = 690.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 disabled = true
-icon = ExtResource( 10 )
+text = "Land"
+icon = ExtResource( 14 )
 
 [node name="controlls" type="HBoxContainer" parent="main"]
 margin_top = 184.0
@@ -169,7 +239,7 @@ margin_left = 25.0
 margin_right = 65.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 11 )
+icon = ExtResource( 15 )
 
 [node name="vertical" type="HBoxContainer" parent="main/controlls/nav_left/right_stick"]
 margin_top = 56.0
@@ -183,14 +253,14 @@ alignment = 1
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 12 )
+icon = ExtResource( 16 )
 
 [node name="btn_cw" type="Button" parent="main/controlls/nav_left/right_stick/vertical"]
 margin_left = 50.0
 margin_right = 90.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 13 )
+icon = ExtResource( 17 )
 
 [node name="center2" type="CenterContainer" parent="main/controlls/nav_left/right_stick"]
 margin_top = 112.0
@@ -202,18 +272,24 @@ margin_left = 25.0
 margin_right = 65.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 14 )
+icon = ExtResource( 18 )
 
 [node name="log" type="Control" parent="main/controlls"]
 margin_left = 192.0
 margin_right = 832.0
 margin_bottom = 256.0
-rect_min_size = Vector2( 640, 0 )
+rect_min_size = Vector2( 640, 256 )
 
 [node name="txt_log" type="RichTextLabel" parent="main/controlls/log"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-text = "FLIGHT LOG:"
+text = "----------------------------------------------------------------------------------------------------------
+WELCOME TO THE *** GODOTELLO COCKPIT *** V0.1
+CONNECT TO THE AIRCRAFT NETWORK.
+WHILE CONNECTED - START SERVER AND SEND 'COMMAND' TO TAKE CONTROL
+----------------------------------------------------------------------------------------------------------
+FLIGHT LOG:
+"
 scroll_active = false
 scroll_following = true
 
@@ -241,7 +317,7 @@ margin_left = 25.0
 margin_right = 65.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 15 )
+icon = ExtResource( 19 )
 
 [node name="vertical" type="HBoxContainer" parent="main/controlls/nav_right/right_stick"]
 margin_top = 56.0
@@ -255,14 +331,14 @@ alignment = 1
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 16 )
+icon = ExtResource( 20 )
 
 [node name="btn_right" type="Button" parent="main/controlls/nav_right/right_stick/vertical"]
 margin_left = 50.0
 margin_right = 90.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 17 )
+icon = ExtResource( 21 )
 
 [node name="center2" type="CenterContainer" parent="main/controlls/nav_right/right_stick"]
 margin_top = 112.0
@@ -274,7 +350,7 @@ margin_left = 25.0
 margin_right = 65.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 18 )
+icon = ExtResource( 22 )
 
 [node name="sliders" type="HBoxContainer" parent="main"]
 margin_top = 456.0
@@ -365,24 +441,6 @@ margin_top = 23.0
 margin_right = 215.0
 margin_bottom = 41.0
 text = "20 cm"
-
-[node name="battery" type="Button" parent="."]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 87.0
-margin_bottom = 50.0
-text = "100%"
-icon = ExtResource( 19 )
-
-[node name="link_strength" type="Button" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -87.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = 50.0
-text = "70db"
-icon = ExtResource( 20 )
 [connection signal="button_down" from="main/system/btn_start_server" to="." method="_on_btn_start_server_button_down"]
 [connection signal="button_down" from="main/system/btn_command" to="." method="_on_btn_command_button_down"]
 [connection signal="button_down" from="main/system/btn_streamon" to="." method="_on_btn_streamon_button_down"]

@@ -35,9 +35,9 @@ func start_server():
 		enable_buttons()
 
 func disable_buttons():
-	$battery.hide()
-	$link_strength.hide()
-	$main/controlls.hide()
+	$info.hide()
+	$main/controlls/nav_left.hide()
+	$main/controlls/nav_right.hide()
 	$main/sliders.hide()
 	
 func enable_buttons():
@@ -45,9 +45,9 @@ func enable_buttons():
 		btn.disabled = false
 	for btn in $main/auto.get_children():
 		btn.disabled = false
-	$battery.show()
-	$link_strength.show()
-	$main/controlls.show()
+	$info.show()
+	$main/controlls/nav_left.show()
+	$main/controlls/nav_right.show()
 	$main/sliders.show()
 	$main/system/btn_start_server.disabled = true
 
