@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://gui/theme.tres" type="Theme" id=1]
 [ext_resource path="res://server.gd" type="Script" id=2]
@@ -6,17 +6,20 @@
 [ext_resource path="res://gui/server-line.png" type="Texture" id=4]
 [ext_resource path="res://gui/command-line.png" type="Texture" id=5]
 [ext_resource path="res://gui/movie-2-line.png" type="Texture" id=6]
-[ext_resource path="res://gui/live-line.png" type="Texture" id=7]
-[ext_resource path="res://gui/flight-takeoff-line.png" type="Texture" id=8]
-[ext_resource path="res://gui/flight-land-line.png" type="Texture" id=9]
-[ext_resource path="res://gui/arrow-up-circle-fill.png" type="Texture" id=10]
-[ext_resource path="res://gui/arrow-go-back-line.png" type="Texture" id=11]
-[ext_resource path="res://gui/arrow-go-forward-line.png" type="Texture" id=12]
-[ext_resource path="res://gui/arrow-down-circle-fill.png" type="Texture" id=13]
-[ext_resource path="res://gui/arrow-up-line.png" type="Texture" id=14]
-[ext_resource path="res://gui/arrow-left-line.png" type="Texture" id=15]
-[ext_resource path="res://gui/arrow-right-line.png" type="Texture" id=16]
-[ext_resource path="res://gui/arrow-down-line.png" type="Texture" id=17]
+[ext_resource path="res://gui/picture-in-picture-exit-line.png" type="Texture" id=7]
+[ext_resource path="res://gui/close-circle-line.png" type="Texture" id=8]
+[ext_resource path="res://gui/flight-takeoff-line.png" type="Texture" id=9]
+[ext_resource path="res://gui/flight-land-line.png" type="Texture" id=10]
+[ext_resource path="res://gui/arrow-up-circle-fill.png" type="Texture" id=11]
+[ext_resource path="res://gui/arrow-go-back-line.png" type="Texture" id=12]
+[ext_resource path="res://gui/arrow-go-forward-line.png" type="Texture" id=13]
+[ext_resource path="res://gui/arrow-down-circle-fill.png" type="Texture" id=14]
+[ext_resource path="res://gui/arrow-up-line.png" type="Texture" id=15]
+[ext_resource path="res://gui/arrow-left-line.png" type="Texture" id=16]
+[ext_resource path="res://gui/arrow-right-line.png" type="Texture" id=17]
+[ext_resource path="res://gui/arrow-down-line.png" type="Texture" id=18]
+[ext_resource path="res://gui/battery-line.png" type="Texture" id=19]
+[ext_resource path="res://gui/base-station-line.png" type="Texture" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -63,35 +66,43 @@ custom_constants/separation = 32
 alignment = 1
 
 [node name="btn_start_server" type="Button" parent="main/system"]
-margin_left = 207.0
-margin_right = 339.0
+margin_left = 139.0
+margin_right = 271.0
 margin_bottom = 32.0
 text = "Start Server"
 icon = ExtResource( 4 )
 
 [node name="btn_command" type="Button" parent="main/system"]
-margin_left = 371.0
-margin_right = 487.0
+margin_left = 303.0
+margin_right = 419.0
 margin_bottom = 32.0
 disabled = true
 text = "Command"
 icon = ExtResource( 5 )
 
 [node name="btn_streamon" type="Button" parent="main/system"]
-margin_left = 519.0
-margin_right = 643.0
+margin_left = 451.0
+margin_right = 575.0
 margin_bottom = 32.0
 disabled = true
 text = "Stream ON"
 icon = ExtResource( 6 )
 
 [node name="btn_show stream" type="Button" parent="main/system"]
-margin_left = 675.0
-margin_right = 817.0
+margin_left = 607.0
+margin_right = 784.0
 margin_bottom = 32.0
 disabled = true
-text = "Show Stream"
+text = "Pop Stream Window"
 icon = ExtResource( 7 )
+
+[node name="btn_quit" type="Button" parent="main/system"]
+margin_left = 816.0
+margin_right = 885.0
+margin_bottom = 32.0
+disabled = true
+text = "Quit"
+icon = ExtResource( 8 )
 
 [node name="auto" type="HBoxContainer" parent="main"]
 margin_top = 128.0
@@ -107,7 +118,7 @@ margin_right = 504.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 disabled = true
-icon = ExtResource( 8 )
+icon = ExtResource( 9 )
 
 [node name="btn_land" type="Button" parent="main/auto"]
 margin_left = 520.0
@@ -115,7 +126,7 @@ margin_right = 560.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 disabled = true
-icon = ExtResource( 9 )
+icon = ExtResource( 10 )
 
 [node name="controlls" type="HBoxContainer" parent="main"]
 margin_top = 184.0
@@ -148,7 +159,7 @@ margin_left = 25.0
 margin_right = 65.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 10 )
+icon = ExtResource( 11 )
 
 [node name="vertical" type="HBoxContainer" parent="main/controlls/nav_left/right_stick"]
 margin_top = 56.0
@@ -162,14 +173,14 @@ alignment = 1
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 11 )
+icon = ExtResource( 12 )
 
 [node name="btn_cw" type="Button" parent="main/controlls/nav_left/right_stick/vertical"]
 margin_left = 50.0
 margin_right = 90.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 12 )
+icon = ExtResource( 13 )
 
 [node name="center2" type="CenterContainer" parent="main/controlls/nav_left/right_stick"]
 margin_top = 112.0
@@ -181,7 +192,7 @@ margin_left = 25.0
 margin_right = 65.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 13 )
+icon = ExtResource( 14 )
 
 [node name="log" type="Control" parent="main/controlls"]
 margin_left = 192.0
@@ -218,7 +229,7 @@ margin_left = 25.0
 margin_right = 65.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 14 )
+icon = ExtResource( 15 )
 
 [node name="vertical" type="HBoxContainer" parent="main/controlls/nav_right/right_stick"]
 margin_top = 56.0
@@ -232,14 +243,14 @@ alignment = 1
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 15 )
+icon = ExtResource( 16 )
 
 [node name="btn_right" type="Button" parent="main/controlls/nav_right/right_stick/vertical"]
 margin_left = 50.0
 margin_right = 90.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 16 )
+icon = ExtResource( 17 )
 
 [node name="center2" type="CenterContainer" parent="main/controlls/nav_right/right_stick"]
 margin_top = 112.0
@@ -251,11 +262,30 @@ margin_left = 25.0
 margin_right = 65.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
-icon = ExtResource( 17 )
+icon = ExtResource( 18 )
+
+[node name="battery" type="Button" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 87.0
+margin_bottom = 50.0
+text = "100%"
+icon = ExtResource( 19 )
+
+[node name="link_strength" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -87.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 50.0
+text = "70db"
+icon = ExtResource( 20 )
 [connection signal="button_down" from="main/system/btn_start_server" to="." method="_on_btn_start_server_button_down"]
 [connection signal="button_down" from="main/system/btn_command" to="." method="_on_btn_command_button_down"]
 [connection signal="button_down" from="main/system/btn_streamon" to="." method="_on_btn_streamon_button_down"]
 [connection signal="button_down" from="main/system/btn_show stream" to="." method="_on_btn_show_stream_button_down"]
+[connection signal="button_down" from="main/system/btn_quit" to="." method="_on_btn_show_stream_button_down"]
 [connection signal="button_down" from="main/auto/btn_takeoff" to="." method="_on_btn_takeoff_button_down"]
 [connection signal="button_down" from="main/auto/btn_land" to="." method="_on_btn_land_button_down"]
 [connection signal="button_down" from="main/controlls/nav_left/right_stick/center/btn_up" to="." method="_on_btn_up_button_down"]

@@ -7,7 +7,7 @@ var socketUDP = PacketPeerUDP.new()
 var ffplay_pid = null;
 
 func _ready():
-	$main/controlls.hide()
+	disable_buttons()
 	pass;
 
 func log_event(event):
@@ -31,11 +31,18 @@ func start_server():
 		log_event("Cockpit: Listening on port: " + str(PORT_SERVER))
 		enable_buttons()
 
+func disable_buttons():
+	$battery.hide()
+	$link_strength.hide()
+	$main/controlls.hide()
+	
 func enable_buttons():
 	for btn in $main/system.get_children():
 		btn.disabled = false
 	for btn in $main/auto.get_children():
 		btn.disabled = false
+	$battery.show()
+	$link_strength.show()
 	$main/controlls.show()
 	$main/system/btn_start_server.disabled = true
 
