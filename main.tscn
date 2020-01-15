@@ -2,9 +2,14 @@
 
 [ext_resource path="res://gui/theme.tres" type="Theme" id=1]
 [ext_resource path="res://server.gd" type="Script" id=2]
-[ext_resource path="res://gui/Endamage.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://gui/Inter-Black.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
+size = 24
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = -6
+extra_spacing_bottom = -6
 font_data = ExtResource( 3 )
 
 [node name="Dashboard" type="Control"]
@@ -23,8 +28,15 @@ margin_right = 1024.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 0, 64 )
 custom_fonts/font = SubResource( 1 )
-text = "GODOTELLO
-by P1X"
+text = "Godotello"
+align = 1
+valign = 1
+
+[node name="txt_title2" type="Label" parent="main/txt_title"]
+margin_top = 43.0
+margin_right = 1024.0
+margin_bottom = 63.0
+text = "by P1X"
 align = 1
 valign = 1
 
@@ -36,29 +48,29 @@ rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 32
 alignment = 1
 
-[node name="btn_connect" type="Button" parent="main/system"]
-margin_left = 251.0
-margin_right = 398.0
+[node name="btn_start_server" type="Button" parent="main/system"]
+margin_left = 285.0
+margin_right = 391.0
 margin_bottom = 32.0
-text = "Connect to Tello"
+text = "Start Server"
 
 [node name="btn_command" type="Button" parent="main/system"]
-margin_left = 430.0
-margin_right = 509.0
+margin_left = 423.0
+margin_right = 500.0
 margin_bottom = 32.0
 disabled = true
 text = "Command"
 
 [node name="btn_streamon" type="Button" parent="main/system"]
-margin_left = 541.0
-margin_right = 632.0
+margin_left = 532.0
+margin_right = 612.0
 margin_bottom = 32.0
 disabled = true
 text = "Stream ON"
 
 [node name="btn_show stream" type="Button" parent="main/system"]
-margin_left = 664.0
-margin_right = 773.0
+margin_left = 644.0
+margin_right = 738.0
 margin_bottom = 32.0
 disabled = true
 text = "Show Stream"
@@ -72,15 +84,15 @@ custom_constants/separation = 16
 alignment = 1
 
 [node name="btn_takeoff" type="Button" parent="main/auto"]
-margin_left = 437.0
-margin_right = 519.0
+margin_left = 449.0
+margin_right = 514.0
 margin_bottom = 32.0
 disabled = true
 text = "Take Off"
 
 [node name="btn_land" type="Button" parent="main/auto"]
-margin_left = 535.0
-margin_right = 587.0
+margin_left = 530.0
+margin_right = 575.0
 margin_bottom = 32.0
 disabled = true
 text = "Land"
@@ -202,7 +214,7 @@ margin_right = 140.0
 margin_bottom = 174.0
 rect_min_size = Vector2( 0, 48 )
 text = "Back"
-[connection signal="button_down" from="main/system/btn_connect" to="." method="_on_btn_connect_button_down"]
+[connection signal="button_down" from="main/system/btn_start_server" to="." method="_on_btn_start_server_button_down"]
 [connection signal="button_down" from="main/system/btn_command" to="." method="_on_btn_command_button_down"]
 [connection signal="button_down" from="main/system/btn_streamon" to="." method="_on_btn_streamon_button_down"]
 [connection signal="button_down" from="main/system/btn_show stream" to="." method="_on_btn_show_stream_button_down"]

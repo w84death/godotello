@@ -3,7 +3,6 @@ extends Control
 var TELLO_IP = "192.168.10.1"
 var TELLO_PORT = 8889
 var PORT_SERVER = 9000
-var IP_SERVER = "127.0.0.1"
 var socketUDP = PacketPeerUDP.new()
 var ffplay_pid = null;
 
@@ -27,9 +26,9 @@ func send_command(cmd):
 
 func start_server():
 	if (socketUDP.listen(PORT_SERVER) != OK):
-		log_event("Error listening on port: " + str(PORT_SERVER))
+		log_event("Cockpit: Error listening on port: " + str(PORT_SERVER))
 	else:
-		log_event("Listening on port: " + str(PORT_SERVER))
+		log_event("Cockpit: Listening on port: " + str(PORT_SERVER))
 		enable_buttons()
 
 func enable_buttons():
@@ -38,14 +37,15 @@ func enable_buttons():
 	for btn in $main/auto.get_children():
 		btn.disabled = false
 	$main/controlls.show()
-	$main/system/btn_connect.disabled = true
+	$main/system/btn_start_server.disabled = true
 
 func _exit_tree():
 	socketUDP.close()
 
-func _on_btn_connect_button_down():
-	start_server()
 
+func _on_btn_start_server_button_down():
+	start_server()
+	
 func _on_btn_command_button_down():
 	send_command('command');
 
