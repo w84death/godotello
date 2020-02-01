@@ -8,6 +8,7 @@ var ffplay_pid = null
 var distance = 20
 var distance_deg = 45
 var speed = 10
+var IS_OK = false
 
 func _ready():
 	disable_buttons()
@@ -19,7 +20,11 @@ func log_event(event):
 func _process(delta):   
 	if socketUDP.get_available_packet_count() > 0:
 		var array_bytes = socketUDP.get_packet()
-		log_event("Tello: " + array_bytes.get_string_from_ascii())
+		var answer = array_bytes.get_string_from_ascii()
+		if answer == 'ok':
+			answer = "confirms!"
+			IS_OK = true
+		log_event("Tello: " + answer )
 
 func send_command(cmd):
 	log_event("Cockpit: " + cmd)
@@ -32,7 +37,7 @@ func start_server():
 		log_event("Cockpit: Error listening on port: " + str(PORT_SERVER))
 	else:
 		log_event("Cockpit: Listening on port: " + str(PORT_SERVER))
-		enable_buttons()
+	enable_command()
 
 func disable_buttons():
 	$info.hide()
@@ -40,7 +45,14 @@ func disable_buttons():
 	$main/controlls/nav_right.hide()
 	$main/sliders.hide()
 	
+func enable_command():
+	$main/system/btn_command.disabled = false
+	
 func enable_buttons():
+	if !IS_OK:
+		return
+	
+	$main/system/btn_command.disabled = true
 	for btn in $main/system.get_children():
 		btn.disabled = false
 	for btn in $main/auto.get_children():
@@ -54,12 +66,15 @@ func enable_buttons():
 func _exit_tree():
 	socketUDP.close()
 
-
 func _on_btn_start_server_button_down():
 	start_server()
-	
+	$timer.connect("timeout", self, "enable_buttons") 
+	$timer.set_wait_time(1)
+
 func _on_btn_command_button_down():
+	IS_OK = false
 	send_command('command')
+	$timer.start()
 
 func _on_btn_streamon_button_down():
 	send_command('streamon')
@@ -120,3 +135,15 @@ func _on_sli_speed_value_changed(value):
 
 func _on_btn_stop_button_down():
 	send_command('stop')
+
+
+func _on_btn_send_cmd_pressed():
+	var cmd = $main/controlls/log/input_line/cmd
+	if cmd.text.length() > 0:
+		send_command(str(cmd.text))
+		cmd.text = ''
+		cmd.grab_focus()
+
+
+func _on_cmd_gui_input(event):
+	print(event.get)

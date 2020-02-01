@@ -15,11 +15,16 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Godotello - Tello FPV Cockpit - V0.1"
+config/name="Godotello - Tello FPV Cockpit - V0.2"
 run/main_scene="res://main.tscn"
 boot_splash/image="res://gui/loading_p1x_final.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=768
 
 [rendering]
 
